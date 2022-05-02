@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Adicionar pagamento</h1>
+
+<div mat-dialog-content>
+    <form [formGroup]="formulario" (ngSubmit)="salvar()">
+        <mat-form-field appearance="fill">
+            <mat-error *ngIf="formulario.get('usuario').hasError('required')">Usuário é obrigatório.</mat-error>
+            <mat-label>Usuario</mat-label>
+            <input matInput formControlName="usuario" type="text" [(ngModel)]="dadosPagamento.username">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Valor</mat-label>
+            <input matInput formControlName="valor" type="text" [(ngModel)]="dadosPagamento.value">
+            <mat-error *ngIf="formulario.get('valor').hasError('required')">Valor do pagamento é obrigatório.</mat-error>
+            <mat-error *ngIf="formulario.get('valor').hasError('pattern')">Favor inserir apenas numeros.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Data</mat-label>
+            <input matInput formControlName="data" type="date" [(ngModel)]="dadosPagamento.date">
+            <mat-error *ngIf="formulario.get('data').hasError('required')">Data do pagamento é obrigatório.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Titulo</mat-label>
+            <input matInput formControlName="titulo" type="text" [(ngModel)]="dadosPagamento.title">
+            <mat-error *ngIf="formulario.get('titulo').hasError('required')">Titulo é obrigatório.</mat-error>
+        </mat-form-field>
+
+        <div mat-dialog-actions>
+            <button mat-button type="button" (click)="cancelar()">CANCELAR</button>
+            <button mat-raised-button color="primary" cdkFocusInitial type="submit" [disabled]="!formulario.valid">SALVAR</button>
+        </div>
+    </form>
+</div>

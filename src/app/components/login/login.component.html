@@ -1,0 +1,35 @@
+<div class="conteudo">
+    <section class="esquerda">
+        <div>
+            <img src="../../assets/imgs/logo.svg" />
+        </div>
+
+        <p>Bem vindo de volta</p>
+
+        <form [formGroup]="formulario" (ngSubmit)="entrar()">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Email" [(ngModel)]="dadosUsuario.email" name="email" />
+                <mat-error *ngIf="formulario.get('email').hasError('required')">E-mail é obrigatório.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput formControlName="senha" [type]="hide ? 'password' : 'text'" placeholder="Senha"
+                    [(ngModel)]="dadosUsuario.password" name="password" />
+                <mat-icon matSuffix (click)="hide = !hide">{{
+                    hide ? "visibility_off" : "visibility"
+                    }}</mat-icon>
+                    <mat-error *ngIf="formulario.get('senha').hasError('required')">Senha é obrigatório.</mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="!formulario.valid">
+                ENTRAR
+            </button>
+        </form>
+    </section>
+
+    <section class="direita">
+        <img src="../../assets/imgs/login_fundo.svg" />
+    </section>
+</div>

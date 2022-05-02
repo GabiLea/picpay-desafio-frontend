@@ -1,0 +1,54 @@
+header {
+    background-color: #002d69;
+    height: 7rem;
+    display: flex;
+    flex-flow: wrap;
+    padding: 2.4rem;
+}
+
+main {
+    padding: 2.4rem;
+}
+
+h1.titulo-pagina {
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 3.4rem;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+mat-form-field .mat-form-field-infix {
+    display: flex;
+}
+
+table {
+    width: 100%;
+    min-height: 70vh;
+    height: 100%;
+    & #td-usuario, #td-data {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & tr.mat-row {
+        height: 7rem;
+    }
+
+    & #td-acoes {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+.mat-row:nth-child(even) {
+    background-color: #f5f8fa;
+}
+.mat-row:nth-child(odd) {
+    background-color: #ffffff;
+}
